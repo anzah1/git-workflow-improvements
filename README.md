@@ -10,16 +10,14 @@
 - if you want to learn what any particular command does `git help` will get you
   started with that
 
-# How to make a good commit
-
-## Know what goes into commit
+# Know what goes into commit
 
 - `git status` is a good starting point to know what what goes into commit
 
 - examine the output carefully, it's actually very helpful and gives you
   instructions about what to do
 
-### Untracked files
+## Untracked files
 
 - there are two kinds of red lines, first you are going to encounter in a fresh
   repository are untracked files
@@ -32,7 +30,7 @@
 
 - using `git add` will add them straight to stagin area
 
-### Changes to be commited
+## Changes to be commited
 
 - second red lines that you are going to encounter are under header changes not
   staged for commit 
@@ -43,7 +41,7 @@
 
 - `git add <file>` will move the files to staging area
 
-### Staging area
+## Staging area
 
 - green lines indicate what's included in so called staging area and are going
   to be included in commit
@@ -52,7 +50,7 @@
 
 - if you made a commit, you can review it by running `git show`
 
-### Formatting commit messages properly
+## Formatting commit messages properly
 
 - Git commits can be e-mailed, which is why there are certain formatting rules
   that should be followed
@@ -64,7 +62,7 @@
 - second line must be always left empty, some tools will get very confused if
   it's not empty
 
-### Writing good commit messages
+# Writing good commit messages
 
 - good commit message describes the change clearly enough that it can be used
   as is in a pull request
@@ -122,7 +120,10 @@ https://xkcd.com/1296/
   that back
 
 - if you get into merge conflict, you can get out of that using `--abort`
-  command line option, just remember to use it with
+  command line option
+
+- `--abort` works with several other commands, remember to use it with same
+  command that caused the conflict
 
 
 # Working on multiple things at the same time
@@ -131,7 +132,7 @@ https://xkcd.com/1296/
   way to accomplish that
 
 - branches work bit like tree branches as they branch from the trunk, but
-  what's really different that they quite often evetually merge back to the
+  what's really different that they quite often eventually merge back to the
   trunk, which makes situation look more like metrolines than a tree
 
 # Remotes
@@ -155,7 +156,7 @@ https://xkcd.com/1296/
 
 # Code review without Github, Gitlab etc. services
 
-- sending patches for review  doesn't necessarily need intermediary like Github
+- sending patches for review doesn't necessarily need intermediary like Github
   in between
 
 - most old fashioned way to share patches is mail them (it's still pretty
@@ -189,7 +190,7 @@ https://xkcd.com/1296/
 - further it drifts away from master (or branch it's supposed to merged into),
   the eventual merge conflict is going to get harder and harder
 
-- start always with `git fetch` as that refresh remote branches 
+- start always with `git fetch` as that will refresh remote branches 
 
 - upstream merge branch is usually origin/master
 
