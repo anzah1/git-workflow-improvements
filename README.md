@@ -82,50 +82,6 @@ http://turnoff.us/geek/commit-messages/
 http://turnoff.us/geek/when-ai-meets-git/
 https://xkcd.com/1296/
 
-# Backups
-
-- Git already works bit like versioned backup systems do, making remote backups
-  is actually pretty common part of Git workflow
-
-- keep in mind that Git can't get changes back that it doesn't know about
-
-- getting commits back is doable though (`git log -g`)
-
-- when about to do something stupid, you can tag the current commit (just make
-  sure you don't push the tag), make new branch out of it or just copy the
-  commit hash to somewhere safe
-
-- usually bit overkill, but if you must make local backup, you use git do 
-  `git clone` of you current repository in other directory
-
-# Getting back to where you started
-
-- there are situations where you want to just start over
-
-- if you want to reset the situation to any commit, you can use 
-  `git reset --hard commit`
-
-- `git reset` doesn't care what branch commit belongs to
-
-- there are to handy shortcuts, `HEAD` will refer to latest commit in the
-  current branch, `origin/master` is last known state of master branch in the
-  default remote
-
-# Recovering from accidents
-
-- most of the necessary building blocks were already mentioned
-
-- `git log -g` shows low level log of the repository, so if you accidentally
-  got rid of commit, you can still see it there and can use `git reset` to get
-  that back
-
-- if you get into merge conflict, you can get out of that using `--abort`
-  command line option
-
-- `--abort` works with several other commands, remember to use it with same
-  command that caused the conflict
-
-
 # Working on multiple things at the same time
 
 - when you need to work on multiple things at the same time, branches are handy
@@ -152,23 +108,6 @@ https://xkcd.com/1296/
 
 - when you do `git pull` or `git fetch`, you will get updated versions of the
   branches on the remote side (latter command leaves your local branches alone)
-
-
-# Code review without Github, Gitlab etc. services
-
-- sending patches for review doesn't necessarily need intermediary like Github
-  in between
-
-- most old fashioned way to share patches is mail them (it's still pretty
-  common in Linux kernel mailing list)
-
-- bit easier way to do that is share you repository with a file share, SSH, web
-  server or whatever seems most convenient
-
-- reviewer can add that location as remote and after start pulling changes
-
-- if reviewee also adds reviewers repository as remote, it's also possible to
-  pull suggestions
 
 # Merge VS rebase
 
@@ -202,6 +141,33 @@ https://xkcd.com/1296/
 - with rebase, `git rebase <upstream merge branch>` will do the same thing, but
   will keep the history cleaner
 
+# Getting back to where you started
+
+- there are situations where you want to just start over
+
+- if you want to reset the situation to any commit, you can use 
+  `git reset --hard commit`
+
+- `git reset` doesn't care what branch commit belongs to
+
+- there are to handy shortcuts, `HEAD` will refer to latest commit in the
+  current branch, `origin/master` is last known state of master branch in the
+  default remote
+
+# Recovering from accidents
+
+- most of the necessary building blocks were already mentioned
+
+- `git log -g` shows low level log of the repository, so if you accidentally
+  got rid of commit, you can still see it there and can use `git reset` to get
+  that back
+
+- if you get into merge conflict, you can get out of that using `--abort`
+  command line option
+
+- `--abort` works with several other commands, remember to use it with same
+  command that caused the conflict
+
 # Handling merge conflicts
 
 - eventually you'll get into merge conflict that you just can't abort
@@ -222,4 +188,36 @@ https://xkcd.com/1296/
 
 - when resolving conflict by hand, note the `<<<`, `===` and `>>>` lines as
   those are added by Git (they are used to indicate both sides of the conflict)
+
+# Code review without Github, Gitlab etc. services
+
+- sending patches for review doesn't necessarily need intermediary like Github
+  in between
+
+- most old fashioned way to share patches is mail them (it's still pretty
+  common in Linux kernel mailing list)
+
+- bit easier way to do that is share you repository with a file share, SSH, web
+  server or whatever seems most convenient
+
+- reviewer can add that location as remote and after start pulling changes
+
+- if reviewee also adds reviewers repository as remote, it's also possible to
+  pull suggestions
+
+# Backups
+
+- Git already works bit like versioned backup systems do, making remote backups
+  is actually pretty common part of Git workflow
+
+- keep in mind that Git can't get changes back that it doesn't know about
+
+- getting commits back is doable though (`git log -g`)
+
+- when about to do something stupid, you can tag the current commit (just make
+  sure you don't push the tag), make new branch out of it or just copy the
+  commit hash to somewhere safe
+
+- usually bit overkill, but if you must make local backup, you use git do 
+  `git clone` of you current repository in other directory
 
