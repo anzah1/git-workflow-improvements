@@ -141,6 +141,53 @@ https://xkcd.com/1296/
 - with rebase, `git rebase <upstream merge branch>` will do the same thing, but
   will keep the history cleaner
 
+# Cleaning up your history
+
+- especially with rebase, you can get into situation where you need to resolve
+  the same conflicts over and over again
+
+- cleaning up your history will make resolving the conflicts bit easier later on
+
+## Quick way
+
+- fastest way to clean up the history, is reconstructing the commits
+
+- if you want to reuse commit messages, you should copy the commit hashes to
+  text file somewhere 
+
+- first part of the process is to use `git reset` with first commit with
+  changes you don't want to reconstruct
+
+- that will remove the commits and leave the changes in staging area
+
+- now you can add things one by one and make as many or few new commits as you
+  like 
+
+- when making commits, you can use `git commit -c <commit hash>` with one your
+  old commits, so you don't have to rewrite the commit messages
+
+- if you need to modify the commit message, you can edit the latest commit
+  with `git commit --amend`
+
+## More finegrained way
+
+- key for this is `git rebase -i` (you usually want to give origin/master as
+  parameter)
+
+- that will let you remove, reorder or combine the commits
+
+- way to prepare for it is to use `--fixup` parameter when making commits as
+  that way rebase knows already what you are intending to do with the commit
+
+- when doing the interactive rebase, you're supposed to reorder the commits in
+  a way that fixup commits are next to the commits they are combined to
+
+- faster way is to use the `--autosquash` parameter with the rebase and Git
+  will reorder things automatically
+
+- remember that you don't need to do rebase if you want to modify the latest
+  commit, `git commit --amend` is lot handier for that
+
 # Getting back to where you started
 
 - there are situations where you want to just start over
